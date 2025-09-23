@@ -1,0 +1,17 @@
+.card-imc {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: #f9f9f9;
+  max-width: 250px;
+}
+
+.card-imc h3 {
+  margin: 0 0 0.5rem;
+}
+
+.classificacao {
+  font-weight: bold;
+  color: #444;
+}
