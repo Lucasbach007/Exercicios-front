@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Lucasbach007/Exercicios-front/issues"
   },
-  "homepage": "https://github.com/Lucasbach007/Exercicios-front#readme"
+  "homepage": "https://github.com/Lucasbach007/Exercicios-front#readme",
+  "devDependencies": {
+    "vite": "^7.1.7"
+  }
 }
