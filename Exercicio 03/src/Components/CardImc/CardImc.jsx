@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './style.css';
+import './CardImc.css';
 
 export default function CardImc({ pessoa }) {
   const [peso, setPeso] = useState(pessoa.peso);
