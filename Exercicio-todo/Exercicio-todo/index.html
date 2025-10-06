@@ -1,13 +1,107 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Exercicios Todo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>exercicio-todo</title>
+
+ 
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f6fa;
+        padding: 20px;
+      }
+      #root {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+    
+    <script type="text/babel">
+      function Todo({ todo, index, toggleDone, removeTodo }) {
+        const [showDesc, setShowDesc] = React.useState(false);
+
+        return (
+          <div style={{ border: "1px solid #ddd", padding: "10px", marginBottom: "10px", borderRadius: "6px" }}>
+            <p>
+              {index + 1}º - <b>{todo.title}</b> {todo.done ? "✅" : "🕒"}
+            </p>
+            <button onClick={() => removeTodo(todo.id)}>❌</button>
+            <button onClick={() => toggleDone(todo.id)}>✔️</button>
+            <button onClick={() => setShowDesc(!showDesc)}>▶</button>
+            {showDesc && <p><i>{todo.text}</i></p>}
+          </div>
+        );
+      }
+
+      function TodoFields({ addTodo }) {
+        const [title, setTitle] = React.useState("");
+        const [text, setText] = React.useState("");
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          if (!title.trim()) return;
+          addTodo(title, text);
+          setTitle("");
+          setText("");
+        };
+
+        return (
+          <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+            <label>Título:</label>
+            <input value={title} onChange={(e) => setTitle(e.target.value)} /><br />
+            <label>Texto:</label>
+            <textarea value={text} onChange={(e) => setText(e.target.value)} /><br />
+            <button type="submit">+ Nova Tarefa</button>
+          </form>
+        );
+      }
+
+      function App() {
+        const [todos, setTodos] = React.useState([]);
+
+        const addTodo = (title, text) => {
+          const newTodo = { id: Date.now(), title, text, done: false };
+          setTodos([...todos, newTodo]);
+        };
+
+        const toggleDone = (id) => {
+          setTodos(todos.map(todo => todo.id === id ? { ...todo, done: !todo.done } : todo));
+        };
+
+        const removeTodo = (id) => {
+          setTodos(todos.filter(todo => todo.id !== id));
+        };
+
+        return (
+          <div>
+            <h1>Lista de tarefas do React</h1>
+            <p>Crie e organize suas tarefas!!!</p>
+            <TodoFields addTodo={addTodo} />
+            <h2>Lista de Tarefas:</h2>
+            {todos.length === 0 ? (
+              <p>Sem tarefas no momento.</p>
+            ) : (
+              todos.map((todo, index) => (
+                <Todo key={todo.id} todo={todo} index={index} toggleDone={toggleDone} removeTodo={removeTodo} />
+              ))
+            )}
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
   </body>
 </html>
