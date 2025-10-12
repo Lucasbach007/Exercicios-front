@@ -1,0 +1,11 @@
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.product-table th {
+  text-align: left;
+  padding: 0.5rem;
+  background: #eee;
+}
