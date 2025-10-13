@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import TodoFields from "./Components/ListTodos/TodoFields/TodoFields";
+import TodoFields from "./Components/TodoFields/TodoFields";
 import ListTodos from "./Components/ListTodos/ListTodos";
 
 function App() {
