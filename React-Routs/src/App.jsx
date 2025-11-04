@@ -4,6 +4,7 @@ import Home from '../routes/Home';
 import Contact from '../routes/Contact';
 
 function App() {
+  const [selectedProcedure, setSelectedProcedure] = useState(null);
 
   return (
   <BrowserRouter>
