@@ -4,6 +4,7 @@ import { ProdCard } from "../src/Components/ProdsComps/ProdCard";
 import { ScheduleModal } from "../src/Components/ProdsComps/ProdsModal";
 import "../src/Components/ProdsComps/Prod.css";
 import { Link } from 'react-router-dom';
+import Navbar from "../src/Components/Navbar.jsx";
 
 
 function Produtos() {

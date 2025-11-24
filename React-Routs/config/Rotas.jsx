@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // 1. Importe os componentes de Rota (páginas)
 import Home from '../routes/Home'; // 👈 Você estava usando 'Servicos' na rota, importe-o.
-import Servicos from '../routes/Servicos'; // 👈 Adicionei esta importação
+import Servicos from '../src/servicos'; // 👈 Adicionei esta importação
 import Contact from '../routes/Contact';
 import Produtos from '../routes/Produtos';
 

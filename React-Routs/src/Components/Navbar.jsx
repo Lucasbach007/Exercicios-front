@@ -1,19 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
+import React from 'react';
+import Servicos from '../servicos';
+//import Produtos from '../routes/Produtos';
 
-function App() {
+const Navbar = () => {
   return (
     <BrowserRouter>
-      <Navbar /> {/* A Navbar fica FORA do Routes, para ser visível em todas as páginas */}
       <div className="content">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* Opcional: Rota para 404/Página Não Encontrada */}
+          <Route path="/" element={<servicos />} />
+          
           <Route path="*" element={<h1>404 - Página Não Encontrada</h1>} />
         </Routes>
       </div>
@@ -21,4 +17,5 @@ function App() {
   );
 }
 
-export default App;
+export default Navbar;
+//<Route path="/Produtos" element={<Produtos />} />
