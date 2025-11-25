@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ======== REGRAS GLOBAIS ======== */
+html, body {
+  height: 100%;         
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    overflow-x: hidden; /* Evita scroll lateral */
+    font-family: "Poppins", sans-serif;
+}
+/* impede o body de "encolher" */
+body {
+    min-height: 100vh;  
+    display: flex;
+    flex-direction: column;
+}

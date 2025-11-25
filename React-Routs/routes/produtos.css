@@ -19,7 +19,7 @@ body {
 }
 
 /* ======== CONTAINER PRINCIPAL ======== */
-.card-grid {
+.servicos-container {
   flex: 1;                      /* Ocupa toda a tela */
   min-height: 100vh;            /* Garante tela cheia */
   background: #ffffff;          /* Fundo branco sempre */

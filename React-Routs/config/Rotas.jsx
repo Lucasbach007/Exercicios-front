@@ -6,6 +6,7 @@ import Home from '../routes/Home'; // 👈 Você estava usando 'Servicos' na rot
 import Servicos from '../src/servicos'; // 👈 Adicionei esta importação
 import Contact from '../routes/Contact';
 import Produtos from '../routes/Produtos';
+import login from '../routes/Login';
 
 // 2. O import './Components/Shearch.jsx' não é necessário aqui.
 //    Se precisar usar o componente 'Shearch' em alguma página, importe-o
@@ -24,6 +25,7 @@ function Rotas() {
         <Route path="/" element={<Servicos />} /> {/* Rota Principal */}
         <Route path="/produtos" element={<Produtos />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<login />} />
         {/* Adicionar a Home (se for diferente de Servicos) */}
         {/* <Route path="/home" element={<Home />} /> */}
       </Routes>

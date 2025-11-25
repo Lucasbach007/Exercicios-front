@@ -7,6 +7,7 @@ import Home from '../routes/Home'
 import Contact from '../routes/Contact'
 import Servicos from './servicos.jsx'
 import Produtos from '../routes/Produtos.jsx'
+import login from '../routes/Login.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/contact" element={<Contact />} />
   <Route path="/procedures" element={<App />} />
   <Route path="/produtos" element={<Produtos />} />
+  <Route path="/login" element={<login />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
