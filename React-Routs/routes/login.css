@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* ======== REGRAS GLOBAIS ======== */
+
 html, body {
   height: 100%;         
     margin: 0;
@@ -29,7 +29,7 @@ body {
 .form-group {
     flex: 1;                      /* Ocupa toda a tela */
     min-height: 100vh;            /* Garante tela cheia */
-    background: #ffffff;          /* Fundo branco sempre */
+    background: #aa8484;          /* Fundo branco sempre */
     padding: 30px 20px;
     display: flex;
     flex-direction: column;

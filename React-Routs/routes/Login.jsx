@@ -1,13 +1,12 @@
-import react from 'react';
-import { Link } from 'react-router-dom';
-import '../routes/login.css';
 import React from 'react';
+import '../routes/login.css';
+
 const Login = () => {
   return (
-    <div>
-      <h1>Login Page</h1>
+    <div className="form-group">
+      <h1 className="h1-login">Login Page</h1>
       <form>
-        <div classname="form-group">
+        <div>
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" name="username" />
         </div>
@@ -15,7 +14,9 @@ const Login = () => {
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" />
         </div>
-        <button type="submit">Login</button>
+        <div>
+          <button type="submit">Login</button>
+        </div>
       </form>
     </div>
   );
