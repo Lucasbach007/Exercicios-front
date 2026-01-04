@@ -1,21 +1,18 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React from 'react';
-import Servicos from '../servicos';
-//import Produtos from '../routes/Produtos';
+import { Link } from "react-router-dom";
+//import "./Navbar.css"; // opcional
 
-const Navbar = () => {
+function Navbar() {
   return (
-    <BrowserRouter>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<servicos />} />
-          
-          <Route path="*" element={<h1>404 - Página Não Encontrada</h1>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <nav className="navbar">
+      <div className="logo">MinhaApp</div>
+
+      <ul className="nav-links">
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/produtos">Produtos</Link></li>
+        <li><Link to="/contato">Contato</Link></li>
+      </ul>
+    </nav>
   );
 }
 
 export default Navbar;
-//<Route path="/Produtos" element={<Produtos />} />

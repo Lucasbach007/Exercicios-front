@@ -1,48 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { proceduresMock } from "../src/mocks/MockProds";
 import { ProdCard } from "../src/Components/ProdsComps/ProdCard";
 import { ScheduleModal } from "../src/Components/ProdsComps/ProdsModal";
-import "../src/Components/ProdsComps/Prod.css";
-import { Link } from 'react-router-dom';
-import Navbar from "../src/Components/Navbar.jsx";
-import Home from "./Home.jsx";
-import './produtos.css';
-import login from "./Login.jsx";
+import Shearchbarprodutos from "../src/Components/Sherachbarprodutos.jsx";
+import { Link } from "react-router-dom";
+import "./produtos.css";
+
 function Produtos() {
   const [selectedProcedure, setSelectedProcedure] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
-return (
-   
-  <> 
-   <div className="navebar">
-      <h1>home</h1>
-      <Link to="/">Servicos</Link>
-      <Link to ="/Home">Home</Link>
-      <Link to ="/Login">Login</Link>
-    </div>
-    
-    
-    <div className="app-container">
-      <h1>Escolha o seu produto com os melhores preços</h1>
-      
+  // 🔍 FILTRO DE PRODUTOS
+  const filteredProducts = useMemo(() => {
+    return proceduresMock.filter((proc) => {
+      const termo = searchTerm.toLowerCase();
 
-      <div className="cards-grid">
-        {proceduresMock.map((proc) => (
-          <ProdCard key={proc.id} procedure={proc} onComprar={setSelectedProcedure} />
-        ))}
+      return (
+        proc.nome.toLowerCase().includes(termo) ||
+        proc.descricao.toLowerCase().includes(termo) ||
+        proc.marca.toLowerCase().includes(termo)
+      );
+    });
+  }, [searchTerm]);
+
+  return (
+    <>
+    
+
+      <div className="app-container">
+        <h1>Escolha o seu produto com os melhores preços</h1>
+
+        {/* SEARCH BAR */}
+        <Shearchbarprodutos
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        {/* CARDS */}
+        <div className="cards-grid">
+          {filteredProducts.map((proc) => (
+            <ProdCard
+              key={proc.id}
+              procedure={proc}
+              onComprar={setSelectedProcedure}
+            />
+          ))}
+        </div>
+
+        {filteredProducts.length === 0 && (
+          <p className="text-gray-500 mt-4">
+            Nenhum produto encontrado 😕
+          </p>
+        )}
+
+        <ScheduleModal
+          procedure={selectedProcedure}
+          onClose={() => setSelectedProcedure(null)}
+        />
       </div>
-
-      <ScheduleModal procedure={selectedProcedure} onClose={() => setSelectedProcedure(null)} />
-    </div>
-
-    
-    <div>
-      <h1>home</h1>
-      <Link to="/">Servicos</Link>
-    </div>
-  </>
-);
-
+    </>
+  );
 }
 
 export default Produtos;
