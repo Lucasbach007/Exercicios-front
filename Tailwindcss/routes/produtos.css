@@ -1,73 +1,191 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* ======== REGRAS GLOBAIS ======== */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  overflow-x: hidden; /* Evita scroll lateral */
-  font-family: "Poppins", sans-serif;
-}
-
-/* impede o body de "encolher" */
-body {
+.app-container {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ======== CONTAINER PRINCIPAL ======== */
-.servicos-container {
-  flex: 1;                      /* Ocupa toda a tela */
-  min-height: 100vh;            /* Garante tela cheia */
-  background: #ffffff;          /* Fundo branco sempre */
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
-/* ======== TÍTULOS ======== */
-.servicos-title {
-  font-size: 2rem;
-  color: #094C59;
-  margin: 0 0 10px 0;
-  font-weight: bold;
-}
-
-.servicos-subtitle {
-  font-size: 1rem;
-  color: #3a3a3a;
-  margin-bottom: 25px;
-}
-
-/* ======== BUSCA ======== */
-.servicos-search-wrapper {
-  width: 100%;
-  max-width: 450px;
-  margin-bottom: 30px;
-}
-
-/* ======== GRID — ITENS LADO A LADO ======== */
-.servicos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+/* ===== GRID DOS PRODUTOS ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 
   width: 100%;
   max-width: 1400px;
+  margin-top: 20px;
 
-  /* impede retração quando está filtrando */
-  min-height: 300px;
+  justify-items: center;
 }
 
-/* ======== TEXTO PARA LISTA VAZIA ======== */
-.servicos-empty-result {
-  color: #888;
-  font-style: italic;
-  margin-top: 20px;
+/* ======== PRODUTOS PAGE ======== */
+.produtos-container {
+  min-height: 100vh;
+  background: var(--white);
+  padding: 2rem;
+}
+
+.produtos-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.produtos-header h1 {
+  font-size: 2.5rem;
+  color: var(--blue-primary);
+  margin-bottom: 0.5rem;
+}
+
+.produtos-header p {
+  font-size: 1rem;
+  color: var(--gray-text);
+}
+
+.produtos-search-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+}
+
+.produtos-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produtos-search-input:focus {
+  outline: none;
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.produto-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--gray-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.produto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.produto-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--gray-light);
+}
+
+.produto-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.produto-info h3 {
+  color: var(--blue-primary);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.produto-info p {
+  color: var(--gray-text);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.produto-preco {
+  color: var(--red-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.produto-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.produto-button {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-carrinho {
+  background: var(--blue-light);
+  color: var(--white);
+}
+
+.btn-carrinho:hover {
+  background: var(--blue-primary);
+  transform: translateY(-2px);
+}
+
+.btn-detalhes {
+  background: var(--gray-light);
+  color: var(--gray-text);
+  border: 1px solid var(--gray-border);
+}
+
+.btn-detalhes:hover {
+  background: var(--gray-border);
+  transform: translateY(-2px);
+}
+
+.produtos-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--red-primary);
+  font-size: 1.1rem;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .produtos-header h1 {
+    font-size: 2rem;
+  }
+
+  .produtos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .produtos-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
 }

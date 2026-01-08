@@ -1,5 +1,121 @@
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  color: aliceblue;
+/* ======== HOME PAGE ======== */
+.home-container {
+  min-height: 100vh;
+  background: var(--white);
+  padding: 2rem;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.home-header h1 {
+  font-size: 2.5rem;
+  color: var(--blue-primary);
+  margin-bottom: 0.5rem;
+}
+
+.home-header p {
+  font-size: 1.1rem;
+  color: var(--gray-text);
+}
+
+.home-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.home-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.home-card h3 {
+  color: var(--blue-primary);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.home-card p {
+  color: var(--gray-text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.home-card-button {
+  background: var(--blue-light);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.home-card-button:hover {
+  background: var(--blue-primary);
+}
+
+.home-cta {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-light) 100%);
+  color: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.home-cta h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.home-cta button {
+  background: var(--red-primary);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.home-cta button:hover {
+  background: #b91c1c;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-cta {
+    padding: 2rem;
+  }
 }

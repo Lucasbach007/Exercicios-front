@@ -10,7 +10,7 @@
 }
 
 .procedure-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-6px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
@@ -24,22 +24,22 @@
   padding: 15px;
 }
 
-.price {
-  color: #d40066;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
+/* ===== BOTÃO DINÂMICO ===== */
 .procedure-button {
-  background-color: #ff0077;
-  color: #fff;
+  width: 100%;
+  background-color: var(--procedure-color, #3b82f6);
+  color: #ffffff;
+
   border: none;
   padding: 10px 16px;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
+  font-weight: 600;
+
+  transition: filter 0.2s ease, transform 0.15s ease;
 }
 
 .procedure-button:hover {
-  background-color: #d40066;
+  filter: brightness(0.9);
+  transform: scale(1.03);
 }

@@ -1,73 +1,86 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* ======== REGRAS GLOBAIS ======== */
+/* ===== VARIÁVEIS DE COR ===== */
+:root {
+  --blue-primary: #1e3a8a;
+  --blue-light: #3b82f6;
+  --red-primary: #dc2626;
+  --white: #ffffff;
+  --gray-light: #f4f6f8;
+  --gray-text: #374151;
+}
+
+/* ===== BASE ===== */
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
-  background: #ffffff;
-  overflow-x: hidden; /* Evita scroll lateral */
+  background: var(--gray-light);
   font-family: "Poppins", sans-serif;
 }
 
-/* impede o body de "encolher" */
-body {
+/* ===== CONTAINER PRINCIPAL ===== */
+.servicos-container {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ======== CONTAINER PRINCIPAL ======== */
-.card-grid {
-  flex: 1;                      /* Ocupa toda a tela */
-  min-height: 100vh;            /* Garante tela cheia */
-  background: #ffffff;          /* Fundo branco sempre */
   padding: 30px 20px;
+  background: var(--white);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-/* ======== TÍTULOS ======== */
+/* ===== TÍTULOS ===== */
 .servicos-title {
   font-size: 2rem;
-  color: #094C59;
-  margin: 0 0 10px 0;
-  font-weight: bold;
+  font-weight: 700;
+  color: var(--blue-primary);
+  margin-bottom: 8px;
 }
 
 .servicos-subtitle {
   font-size: 1rem;
-  color: #3a3a3a;
+  color: var(--gray-text);
   margin-bottom: 25px;
 }
 
-/* ======== BUSCA ======== */
+/* ===== SEARCH ===== */
 .servicos-search-wrapper {
   width: 100%;
-  max-width: 450px;
+  max-width: 420px;
   margin-bottom: 30px;
 }
 
-/* ======== GRID — ITENS LADO A LADO ======== */
+/* ===== GRID DE SERVIÇOS ===== */
 .servicos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-
   width: 100%;
   max-width: 1400px;
 
-  /* impede retração quando está filtrando */
-  min-height: 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+
+  justify-items: center;
+  align-items: stretch;
 }
 
-/* ======== TEXTO PARA LISTA VAZIA ======== */
+/* ===== TEXTO VAZIO ===== */
 .servicos-empty-result {
-  color: #888;
-  font-style: italic;
+  grid-column: 1 / -1; /* ocupa a linha inteira */
   margin-top: 20px;
+  color: var(--red-primary);
+  font-style: italic;
+}
+.procedure-button {
+  background-color: var(--product-color, #3b82f6);
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: filter 0.2s ease, transform 0.15s ease;
+}
+
+.procedure-button:hover {
+  filter: brightness(0.9);
+  transform: scale(1.03);
 }

@@ -26,7 +26,9 @@ export const ProcedureCard = ({ procedure, onAgendar }) => {
         <button
           onClick={() => onAgendar(procedure)}
           className="procedure-button"
+             style={{ "--procedure-color": procedure.cor }}
         >
+        
           Agendar
         </button>
       </div>

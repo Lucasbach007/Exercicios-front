@@ -3,6 +3,7 @@ import { proceduresMock } from "./mocks/procedures";
 import { ProcedureCard } from "./Components/ProcedureCard/ProcedureCard";
 import { ScheduleModal } from "./Components/ScheduleModal/ScheduleModal";
 import Shearchbar from "./Components/Shearchbar.jsx"; 
+import "./servicos.css";
 //import Navbar from "./Components/Navbar.jsx";
 //import "./servicos.css"; // Agora vamos usar CSS puro
 
